@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<title>Read and listen to Cyberpunk2077 shards</title>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Immerse yourself in Night City's cyberpunk dystopian atmosphere. Listen to stories about NC's people and read the lore behind the game. Created by CDcruz.">
+		<meta name="keywords" content="cyberpunk, cyberpunk2077, 2077, shards, shard, night, city">
+		<meta name="viewport" content="width=device-width, minimal-ui">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<meta name="theme-color" content="#6b2022"/>
+
+		<link rel="shortcut icon" type="image/png" href="favicon.png">
+		<link rel="icon" href="favicon32.ico"><!-- 32×32 -->
+		<link rel="icon" href="favicon.svg" type="image/svg+xml">
+		<link rel="apple-touch-icon" href="faviconApple.png"><!-- 180×180 -->
+		<link rel="manifest" href="manifest.webmanifest">
+
+
+		<link rel="preload" href="/assets/css/fonts/BlenderPro-Book.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+
+
+		<link href="/assets/css/layout.css" rel="stylesheet">
+		<link href="/assets/css/cyberpunk.css" rel="stylesheet">
+		<link href="/assets/css/glitch.css" rel="stylesheet">
+		
+
+		
+		<script src="/assets/js/shard_db_string.js" defer></script>
+		<script src="/assets/js/cyberpunk_shards_load.js" defer></script>
+		<script src="/assets/js/shard_search.js" defer></script>
+</head>
+
+	<body onLoad="window.status='Cyberpunk2077 Shards Database';return true">
+		<aside id="modalBG"><div id="modalBox"><p>'Ay Choombas, this webpage is completely fanmade and has nothing to do with the corpos over at CDprojektRed. But if you have some eddies lying around, I'd spend it on Cyberpunk 2077 so you can experience Night City for yourself. <br>If you're here for a refresher, enjoy!<br>And if you really have eddies to burn, hows 'bout supportin' CDcruz; the creator of this page by checkin' out his tracks @ <a href="https://cdcruz.com/" target="_blank" rel="noopener">cdcruz.com</a>
+		<br>If you would like to contribute recordings to this website feel free to contact CDcruz on any of his social links.</p><button onclick="closeModal(this);">Okay</button></div></aside>
+
+		<section id="header">
+			<div  id="level" class="headerText" style="color: var(--cpBlue);">11 LEVEL</div>
+			<div id="streetLevel" class="headerText" style="color: var(--cpGreen); margin-left: 20px;">9 STREET CRED</div>
+			<div id="storage" class="headerText" style="color: var(--cpRedHL);"></div>
+			<div id="money" class="headerText" style="color: var(--cpRedHL);"></div></section>
+		<div id="shardsHeader" style="display: flex;"><hr class="headerRedLine">
+			<h1 style="margin: 0px 20px; font-size: 25px; white-space: nowrap;">Cyberpunk Shards Database</h1>
+			<hr class="headerRedLine"></div>
+
+		<article id="layout1">
+			<section id="section1">
+
+				<input class="shardSearch" placeholder="Search..." oninput="searchShard(this);" aria-label="shard search bar"/>
+				<div style="overflow-y: auto; height: calc(100% - 90px);">
+				<section id="full_shards_list">
+
+				</section>
+				</div>
+
+			</section>
+
+			<section id="section2">
+
+				<section id="audioSection">
+					<button id="playAudioButton" onclick="playAudio();"><img class="wrench" height="100" width="100" style="margin: auto 0px auto auto; height: 60px; width: 60px;" loading="lazy" src="assets/images/cyberpunk_assets/play.svg" alt=""></img></button>
+					<button id="resetAudioButton" onclick="resetAudio();"><img class="wrench" height="100" width="100" style="margin: auto 0px auto auto; height: 30px; width: 30px;" loading="lazy" src="assets/images/cyberpunk_assets/reset.svg" alt=""></img></button>
+
+					<input type="range" min="1" max="100" value="0" step="0.001"class="slider" id="audioSeek" style="margin: auto;" onchange="dropSlider();" oninput="clickSlider();" >
+
+					<div id="audioTime">0:00/0:00</div>
+					<div id="voiceActor">Recorded by: CDcruz</div>
+
+					<audio id="audioPlayer" controls="none" style="display: none;" onended="audioEnd();">
+					  <!--<source src="track.ogg" type="audio/ogg" />-->
+					  <source src="assets/audio/cp_shards/no_recording.mp3" type="audio/mp3" />
+					Your browser does not support the audio element.
+					</audio>
+				</section>
+				<hr id="redLine1">
+
+				<section id="textBody">
+					<p style="height: 100%; width: 100%; display: flex; margin: 0px;">
+						<span style="margin: auto; font-size: 30px; color: var(--cpRed);">[No entry selected]</span>
+					</p>
+				</section>
+
+			</section>
+
+			<div id="margin" style="max-width: 200px; width:5%;"></div>
+		</article>
+  	</body>

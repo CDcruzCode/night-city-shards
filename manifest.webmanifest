@@ -1,0 +1,22 @@
+{
+	"dir" : "ltr",
+	"lang" : "English",
+	"name" : "NCshards",
+	"scope" : "/",
+	"display" : "minimal-ui",
+	"start_url" : "https://nightcityshards.net",
+	"short_name" : "NCshards",
+	"theme_color" : "#6b2022",
+	"description" : "A database of Cyberpunk2077 shards",
+	"categories" : ["entertainment"],
+	"orientation" : "any",
+	"background_color" : "#ff9966",
+	"related_applications" : [],
+	"prefer_related_applications" : false,
+	"url" : "https://nightcityshards.net",
+	"screenshots" : [],
+	"icons": [
+    { "src": "/favicon192.png", "type": "image/png", "sizes": "192x192" },
+    { "src": "/favicon512.png", "type": "image/png", "sizes": "512x512" }
+  ]
+}
