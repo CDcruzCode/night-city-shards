@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <circle cx="50" cy="50" r="50" style="fill:none;"/>
+    <clipPath id="_clip1">
+        <circle cx="50" cy="50" r="50"/>
+    </clipPath>
+    <g clip-path="url(#_clip1)">
+        <g id="Layer1" transform="matrix(1,0,0,1,2.80512,3.55271e-14)">
+            <rect x="12" y="40" width="20" height="20" style="fill:rgb(255,120,108);stroke:rgb(255,120,108);stroke-width:2.78px;"/>
+            <g transform="matrix(6.12323e-17,-1,1,6.12323e-17,-5,103.5)">
+                <path d="M53.5,24L80,57L27,57L53.5,24Z" style="fill:rgb(255,120,108);stroke:rgb(255,120,108);stroke-width:2.78px;"/>
+            </g>
+            <path d="M55,36.069C58.912,39.443 61.39,44.434 61.39,50C61.39,55.566 58.912,60.557 55,63.931L55,59.98C57.254,57.274 58.61,53.794 58.61,50C58.61,46.206 57.254,42.726 55,40.02L55,36.069Z" style="fill:rgb(255,120,108);stroke:rgb(255,120,108);stroke-width:1px;stroke-linecap:butt;stroke-miterlimit:2;"/>
+            <g transform="matrix(1.61765,0,0,1.61765,-26.5588,-30.8824)">
+                <path d="M54.892,36.68C58.553,39.952 60.859,44.709 60.859,50C60.859,55.291 58.553,60.048 54.892,63.32L53.532,62.228C56.966,59.267 59.141,54.885 59.141,50C59.141,45.115 56.966,40.733 53.532,37.772L54.892,36.68Z" style="fill:rgb(255,120,108);stroke:rgb(255,120,108);stroke-width:0.62px;stroke-linecap:butt;stroke-miterlimit:2;"/>
+            </g>
+            <g transform="matrix(2.23529,0,0,2.23529,-53.1176,-61.7647)">
+                <path d="M55.305,37.391C58.584,40.592 60.622,45.06 60.622,50C60.622,54.94 58.584,59.408 55.305,62.609L54.328,61.825C57.44,58.843 59.378,54.646 59.378,50C59.378,45.354 57.44,41.157 54.328,38.175L55.305,37.391Z" style="fill:rgb(255,120,108);stroke:rgb(255,120,108);stroke-width:0.45px;stroke-linecap:butt;stroke-miterlimit:2;"/>
+            </g>
+        </g>
+    </g>
+    <path d="M50,0C77.596,0 100,22.404 100,50C100,77.596 77.596,100 50,100C22.404,100 0,77.596 0,50C0,22.404 22.404,0 50,0ZM50,5C25.164,5 5,25.164 5,50C5,74.836 25.164,95 50,95C74.836,95 95,74.836 95,50C95,25.164 74.836,5 50,5Z" style="fill:rgb(255,120,108);"/>
+</svg>

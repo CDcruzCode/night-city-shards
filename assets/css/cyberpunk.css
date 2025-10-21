@@ -1,0 +1,420 @@
+@font-face {
+  font-family: 'blenderPro';
+  src: url('fonts/BlenderPro-Book.woff2');
+}
+
+@font-face {
+  font-family: 'blenderProBold';
+  src: url('fonts/BlenderPro-Bold.woff2');
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-button{ display: none; height: 13px; border-radius: 0px; background-color: #000; }
+::-webkit-scrollbar-button:hover{ background-color: #000; }
+::-webkit-scrollbar-thumb{ background-color: var(--cpRedHL); border-radius: 100px; }
+::-webkit-scrollbar-thumb:hover{ background-color: var(--cpRedHL); border-radius: 100px; }
+::-webkit-scrollbar-track{ background-color: var(--cpBlack); border-radius: 100px; }
+::-webkit-scrollbar-track:hover{ background-color: var(--cpBlack); border-radius: 100px; }
+::-webkit-scrollbar{ width: 4px; height: 7px; }
+
+:root {
+  --cpBlack: black;
+  --cpRed: #b74547;
+  --cpBlue: #70F7FE;
+  --cpBlueHL: #80f8fe;
+  --cpRedHL: #FF786C;
+  --cpRedSel: #6b2022;
+  --cpYellow: #F1C34C;
+  --cpGreen: #3EFFBD;
+}
+
+
+html {
+  background: rgb(9,9,15);
+  background: -moz-linear-gradient(348deg, rgba(9,9,15,1) 0%, rgba(30,26,50,1) 47%, rgba(91,32,38,1) 100%);
+  background: -webkit-linear-gradient(348deg, rgba(9,9,15,1) 0%, rgba(30,26,50,1) 47%, rgba(91,32,38,1) 100%);
+  background: linear-gradient(348deg, rgba(9,9,15,1) 0%, rgba(30,26,50,1) 47%, rgba(91,32,38,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#09090f",endColorstr="#5b2026",GradientType=1);
+}
+
+* {
+  box-sizing: border-box;
+  color: var(--cpBlue);
+  font-family: 'blenderPro', sans-serif;
+  cursor: url('../../cp_cursor.png') 25 25, default; /* cursor: url(relative to CSS file) cursor offset to put in center of image, fallback to default cursor if not supported*/
+
+  font-weight: 100;
+}
+
+
+body {
+  height: 100vh;
+
+}
+
+#modalBG {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0,0,0,0.4);
+}
+
+#modalBox {
+  border: 1px solid var(--cpRed);
+  background-color: rgba(0,0,0,0.9);
+  margin: auto 20%;
+  padding: 20px;
+  max-height: 500px;
+  overflow: scroll;
+}
+
+#modalBox p {
+  color: var(--cpBlue);
+  font-size: 23px;
+  text-align: left;
+}
+
+#modalBox Button {
+  border: 1px solid var(--cpRed);
+    background-color: var(--cpRedSel);
+    margin: auto 20%;
+    padding: 5px 20px;
+    font-size: 23px;
+}
+
+#header {
+  height: 50px;
+  display: flex;
+  font-size: 30px;
+  padding: 5px 20px;
+  font-family: 'blenderProBold', sans-serif;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+    overflow: hidden;
+}
+
+.headerText {
+  font-family: 'blenderProBold', sans-serif;
+  filter: drop-shadow(0px 0px 5px gray);
+  display: flex;
+    flex-wrap: nowrap;
+}
+
+
+#layout1 {
+  width: 100%;
+  height: calc( 100% - 90px);
+  display: flex;
+
+}
+
+#section1 {
+  width: 50%;
+  height: 100%;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+#full_shards_list {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.shardSearch {
+  box-sizing: border-box;
+  text-transform: uppercase;
+  border: 1px solid var(--cpBlue);
+  background-color: rgba(0,0,0,0.2);
+  margin: 10px 5px 10px 45px;
+
+ width: calc( 100% - 50px);
+ height: 50px;
+ line-height: 35px;
+ overflow: hidden;
+ padding: 5px 20px;
+ text-align: left;
+ font-size: 20px;
+ border-bottom-right-radius: 30px;
+ border-top-right-radius: 30px;
+
+
+ outline: none;
+}
+
+.shardSearch:focus {
+  border: 3px solid var(--cpBlueHL);
+}
+
+/*
+.titleBox {
+  background-image: url('../images/cyberpunk_assets/shardBox.svg');
+  background-repeat: no-repeat;
+  height: 58px;
+  width: 100%;
+  background-size:100% 100%;
+  background-position: center;
+  margin: 10px 0px;
+
+  text-align: left;
+  padding: 10px 60px;
+  font-size: 23px;
+  overflow-wrap: break-word;
+
+  display: flex;
+}
+*/
+
+.headerRedLine {
+  width: 100%;
+  height: 1px;
+  margin: auto;
+  border: 1px solid var(--cpRedHL);
+  filter: drop-shadow(0px 0px 5px var(--cpRedHL));
+}
+
+.section_header {
+  /*cursor: pointer;*/
+  cursor: url('../../cp_cursor.png') 25 25, pointer;
+  display: flex;
+  border: 1px solid var(--cpRed);
+  background-color: rgba(0,0,0,0.2);
+  margin: 10px 10px 10px 45px;
+
+ width: calc( 100% - 50px);
+ height: auto; /*previously 50px*/
+ line-height: 35px;
+ overflow: hidden;
+ padding: 5px 20px;
+ text-align: left;
+ font-size: 20px;
+ border-bottom-right-radius: 30px;
+}
+
+.section_header:hover {
+  border: 1px solid var(--cpRedHL);
+}
+
+.section_list {
+  overflow: hidden;
+  transition: ease 0.5s;
+  display: block;
+}
+
+.titleBox {
+  /*cursor: pointer;*/
+  cursor: url('../../cp_cursor.png') 25 25, pointer;
+  display: flex;
+  border: 1px solid var(--cpRed);
+  background-color: rgba(0,0,0,0.2);
+  margin: 10px 10px 0px 80px;
+
+ width: calc( 100% - 85px);
+ overflow: hidden;
+ padding: 5px 20px;
+ text-align: left;
+ font-size: 20px;
+ border-bottom-right-radius: 30px;
+}
+
+.titleBox span {
+  margin-right: 5px;
+}
+
+.titleBox:hover {
+  border: 1px solid var(--cpRedHL);
+}
+
+.selected {
+  background-color: var(--cpRedSel) !important;
+}
+
+.phantom_liberty {
+  background-color: rgb(0, 29, 73);
+  border: 1px solid rgb(137, 14, 185) !important;
+}
+
+.wrench {
+  height: 30px;
+  width: 30px;
+  margin-right: 15px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.list_num {
+  color: var(--cpYellow);
+  margin: auto 10px;
+}
+
+#section2 {
+  width: 100%;
+  height: 100%;
+}
+
+#audioSection {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 17px auto 17px 50px;
+}
+
+#playAudioButton, #resetAudioButton {
+  background-color: transparent;
+  border: none;
+
+}
+
+#playAudioButton:hover, #resetAudioButton:hover {
+  filter: brightness(120%);
+}
+
+#audioTime, #voiceActor {
+  margin: auto 5px;
+  font-size: 20px;
+  white-space: nowrap;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  border-radius: 5px;
+  background: var(--cpRedHL);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  margin: auto;
+    min-width: 100px;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--cpBlue);
+  /*cursor: pointer;*/
+  cursor: url('../../cp_cursor.png') 25 25, pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4CAF50;
+  /*cursor: pointer;*/
+  cursor: url('../../cp_cursor.png') 25 25, pointer;
+}
+
+#redLine1 {
+  border: 1px solid var(--cpRed);
+  margin: 0px 50px 30px 50px;
+  filter: drop-shadow(0px 0px 5px var(--cpRed));
+}
+
+#textBody {
+  width: 100%;
+  padding: 0px 10px 0px 50px;
+  margin-right: 100px;
+  text-align: left;
+  font-size: 23px;
+  overflow: auto;
+  height: calc( 100% - 130px);
+}
+
+
+
+@media only screen and (min-width: 901px) {
+  #section1 {
+    max-width: 500px;
+    width: 50%;
+  }
+
+  #section2 {
+    display: block;
+  }
+
+  mob_shard {
+    display: none;
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+
+  #modalBox {
+    margin: auto 3%;
+  }
+
+  #section1 {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  #section2 {
+    display: none;
+  }
+
+  mob_shard {
+    display: block;
+  }
+
+}
+
+
+
+
+mob_shard {
+  margin: 0px;
+  padding: 0px;
+  height: auto;
+  overflow: hidden;
+}
+
+mob_shard > div {
+    background-color: rgb(0,0,0,0.4);
+    width: calc(100% - 120px);
+    margin: 0px 80px 10px 80px;
+    transition: ease 0.5s;
+    border: 1px solid var(--cpRed);
+    border-top: 0px;
+    font-size: 20px;
+    padding: 10px;
+    text-align: left;
+}
+
+mob_shard p {
+  color: var(--cpBlue);
+  padding: 10px;
+  text-align: left;
+}
+
+.playAudioButtonMob {
+  background-color: transparent;
+  border: none;
+  margin-left: auto;
+}
+
+.playAudioButtonMob:hover {
+  filter: brightness(120%);
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+  .titleBox {
+    margin: 10px 10px 0px 45px;
+    width: calc(100% - 50px);
+  }
+
+  mob_shard > div {
+    margin: 0px 50px 10px 50px;
+    width: calc(100% - 80px);
+  }
+
+}

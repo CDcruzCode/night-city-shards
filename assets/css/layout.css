@@ -1,0 +1,80 @@
+html {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	/*background-color: #ff9933;*/
+	/*background: linear-gradient(146deg, rgba(52,11,142,1) 0%, rgba(78,37,167,1) 34%, rgba(123,82,212,1) 54%, rgba(140,108,210,1) 98%);
+	background-color: #340B8E;*/
+	/*background: rgb(106,29,92);
+	background: linear-gradient(47deg, rgba(106,29,92,1) 0%, rgba(73,37,52,1) 100%);*/
+	background-color: black;
+	/*@include fluid-type(25rem, 64rem, .75rem, 1rem);*/
+	user-drag: none;
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+
+
+}
+
+@font-face {
+  font-family: roboto;
+  src: url(fonts/Roboto-Regular.ttf);
+  font-style: normal;
+  font-weight: 400;
+	font-display: swap;
+}
+
+body{
+  font-family: roboto;
+  font-weight: 400;
+  color: white;
+	margin: 0 auto;
+
+	font-family: 'Montserrat';
+}
+
+iframe {
+	width: 100%;
+	max-width: 560px;
+}
+
+button {
+	outline: none;
+	cursor: pointer;
+}
+
+img {
+	user-drag: none;
+user-select: none;
+-moz-user-select: none;
+-webkit-user-drag: none;
+-webkit-user-select: none;
+-ms-user-select: none;
+
+max-width: 100vw
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	user-select: none;
+}
+
+
+p {
+  color:white;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+	margin: 5px auto;
+}
+
+h1 { @include fluid-type(font-size, 400px, 1024px, 22.128px, 48.828px); }
+h2 { @include fluid-type(font-size, 400px, 1024px, 20.739px, 39.063px); }
+h3 { @include fluid-type(font-size, 400px, 1024px, 19.436px, 31.25px); }
+h4 { @include fluid-type(font-size, 400px, 1024px, 18.216px, 25px); }
+h5 { @include fluid-type(font-size, 400px, 1024px, 17.072px, 20px); }
+h5 { @include fluid-type(font-size, 400px, 1024px, 16px, 16px); }
