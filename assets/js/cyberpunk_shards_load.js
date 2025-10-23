@@ -205,7 +205,10 @@ function display_text(selected, index) {
   //Text display text
   text_body.innerHTML = result_row[2];
 
-  // TODO: make sure that category is expanded for selected item
+  // Make sure that category is expanded for selected item.
+  // Mind the previousElementSibling to go from `<div class="section_list` to `<h2 class="section_header`
+  const category = selected.closest('.section_list').previousElementSibling;
+  toggle_para(category)
 
   //Check if there is a audio recording
   let voice_actor = String(result_row[3]).trim();
