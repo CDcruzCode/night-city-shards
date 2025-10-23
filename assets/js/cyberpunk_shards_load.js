@@ -34,14 +34,10 @@ function AdjustingInterval(workFunc, interval, errorFunc) {
 }
 
 
-/*async function toggle_para(header) {
+function show_para(header) {
   let child_text = header.nextElementSibling;
-  if (child_text.style.maxHeight == "0px") {
-    child_text.style.maxHeight = (child_text.scrollHeight + 1000) + "px";
-  } else {
-    child_text.style.maxHeight = "0px";
-  }
-}*/
+  child_text.style.display = "block";
+}
 
 function toggle_para(header) {
   let child_text = header.nextElementSibling;
@@ -208,7 +204,7 @@ function display_text(selected, index) {
   // Make sure that category is expanded for selected item.
   // Mind the previousElementSibling to go from `<div class="section_list` to `<h2 class="section_header`
   const category = selected.closest('.section_list').previousElementSibling;
-  toggle_para(category)
+  show_para(category)
 
   //Check if there is a audio recording
   let voice_actor = String(result_row[3]).trim();
