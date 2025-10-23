@@ -38,7 +38,7 @@ function AdjustingInterval(workFunc, interval, errorFunc) {
   let child_text = header.nextElementSibling;
   if (child_text.style.maxHeight == "0px") {
     child_text.style.maxHeight = (child_text.scrollHeight + 1000) + "px";
-  } else {  
+  } else {
     child_text.style.maxHeight = "0px";
   }
 }*/
@@ -47,7 +47,7 @@ function toggle_para(header) {
   let child_text = header.nextElementSibling;
   if (child_text.style.display == "none") {
     child_text.style.display = "block";
-  } else {  
+  } else {
     child_text.style.display = "none";
   }
 }
@@ -87,10 +87,10 @@ const text_body = document.getElementById('textBody');
 function parse_tsv(tsv) {
   // Split the TSV string into rows
   const rows = tsv.split('\n');
-  
+
   // Map each row to an array of its tab-separated values
   const array = rows.map(row => row.split('\t'));
-  
+
   return array;
 }
 
@@ -108,10 +108,17 @@ let category_list = [];
 let category_data = [];
 const full_shards_list = document.querySelector("#full_shards_list");
 
+function indexed_map(list_of_lists) {
+  return Object.fromEntries(
+    list_of_lists.map((list, index) => [index, list])
+  );
+}
+
 async function load_list() {
   var full_shards = parse_tsv(shard_db);
 
   let count = 0;
+  let index = 0;
   full_shards.forEach( rows => {
     if(count == 0) {
       count++;
@@ -139,7 +146,7 @@ async function load_list() {
     let shard_title = String(row_arr[1]).replaceAll("'","");
 
     const result_row = category_data.find(row => row[0] === shard_category);
-    result_row[1] += `<h3 class="titleBox ${row_arr[5] == "yes" ? "phantom_liberty" : ""} ${row_arr[3] != "" ? "has_audio" : ""}" onclick='display_text(this, "${row_arr[0]}", "${shard_title}");'>
+    result_row[1] += `<h3 data-shard-id="${index}" class="titleBox ${row_arr[5] == "yes" ? "phantom_liberty" : ""} ${row_arr[3] != "" ? "has_audio" : ""}" onclick='display_text(this, "${index}");'>
 			<img class="wrench" height="30" width="30" loading="lazy" src="assets/images/cyberpunk_assets/wrench.svg" alt=""></img>
 			<span>${String(row_arr[1]).toUpperCase()}</span>
       ${row_arr[3] != "" ? '<img class="wrench" height="30" width="30" style="margin: auto 10px auto auto;" loading="lazy" src="assets/images/cyberpunk_assets/audio_symbol.svg" alt=""></img>' : ""}
@@ -153,6 +160,7 @@ async function load_list() {
 
     result_row[2]++;
     count++;
+    index++;
   });
 
   // Wait for the next animation frame
@@ -165,6 +173,12 @@ async function load_list() {
     category_list.innerHTML = list[1];
   });
 
+  const shard_id = parseInt(window.location.hash.replace(/^#/, ''));
+  if (shard_id) {
+    const selected = document.querySelector(`.titleBox[data-shard-id="${shard_id}"]`);
+    display_text(selected, shard_id);
+  }
+
 }
 
 load_list();
@@ -173,7 +187,8 @@ function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function display_text(selected, category, title) {
+function display_text(selected, index) {
+  window.location.hash = index;
   let full_shards = parse_tsv(shard_db);
   //Clear selected box
   var prev_selected = document.querySelectorAll('.selected.titleBox');
@@ -181,14 +196,16 @@ function display_text(selected, category, title) {
 
   //Add selected class to new selected box
   selected.classList.add("selected");
-  //Finding shard text from full shards DB that matches category and title name
-  const result_row = full_shards.find(row => row[0] === category && row[1].replaceAll("'","") === title);
+  const shard_map = indexed_map(full_shards);
+  const result_row = shard_map[index]
   if (!result_row) {
-    console.log(`Row not found for ${title}`);
+    console.error(`Row not found for ${title}`);
   }
 
   //Text display text
   text_body.innerHTML = result_row[2];
+
+  // TODO: make sure that category is expanded for selected item
 
   //Check if there is a audio recording
   let voice_actor = String(result_row[3]).trim();
